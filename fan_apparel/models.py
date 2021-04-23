@@ -13,6 +13,7 @@ class Product(models.Model):
     price = models.DecimalField(
         max_digits=7, decimal_places=2, null=True, blank=True)
     category = models.CharField(max_length=200, null=True, blank=True)
+    inStock = models.BooleanField(default=True)
 
     ###### fix later when moving from sqlite to postgres ########
     # details = ArrayField(models.CharField(max_length=200), blank=True, default=False)
