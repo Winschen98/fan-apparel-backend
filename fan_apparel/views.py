@@ -9,8 +9,8 @@ from .products import products
 # Create your views here.
 
 @api_view(['GET'])
-def getRoutes(request): 
-    routes= [
+def getRoutes(request):
+    routes = [
         # routes that will be used later
         '/api/products/',
         '/api/products/create/',
@@ -21,6 +21,18 @@ def getRoutes(request):
     ]
     return Response(routes)
 
+
 @api_view(["GET"])
-def getProducts(request): 
+def getProducts(request):
     return Response(products)
+
+
+@api_view(["GET"])
+def getProduct(request, pk):
+    specificProduct = None
+    for product in products:
+        if product['_id'] == pk:
+            specificProduct = product
+            break
+
+    return Response(product)
