@@ -5,7 +5,6 @@ from rest_framework.response import Response
 
 
 from .models import Product
-from .products import products
 from .serializers import ProductSerializer
 
 
@@ -15,12 +14,12 @@ from .serializers import ProductSerializer
 def getRoutes(request):
     routes = [
         # routes that will be used later
-        '/api/products/',
-        '/api/products/create/',
-        '/api/products/upload/',
-        '/api/products/<update>/<id>/',
-        '/api/products/delete/<id>/',
-        '/api/products/<id>/',
+        '/products/',
+        '/products/create/',
+        '/products/upload/',
+        '/products/<update>/<id>/',
+        '/products/delete/<id>/',
+        '/products/<id>/',
     ]
     return Response(routes)
 
