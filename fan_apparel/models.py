@@ -13,13 +13,14 @@ class Product(models.Model):
     price = models.DecimalField(
         max_digits=7, decimal_places=2, null=True, blank=True)
     category = models.CharField(max_length=200, null=True, blank=True)
-    inStock = models.BooleanField(default=True)
+    inStock = models.IntegerField(null=True, blank=True, default=1)
+    newRelease = models.BooleanField(default=False)
+    createdAt = models.DateTimeField(auto_now_add=True)
 
     ###### fix later when moving from sqlite to postgres ########
     # details = ArrayField(models.CharField(max_length=200), blank=True, default=False)
 
     
-    createdAt = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
