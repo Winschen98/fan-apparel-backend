@@ -44,6 +44,12 @@ INSTALLED_APPS = [
     'fan_apparel.apps.FanApparelConfig',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 
