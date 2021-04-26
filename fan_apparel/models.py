@@ -16,6 +16,7 @@ class Product(models.Model):
     inStock = models.IntegerField(null=True, blank=True, default=1)
     newRelease = models.BooleanField(default=False)
     createdAt = models.DateTimeField(auto_now_add=True)
+    gender = models.CharField(max_length=200, null=True, blank=True, default='male')
 
     ###### fix later when moving from sqlite to postgres ########
     # details = ArrayField(models.CharField(max_length=200), blank=True, default=False)
