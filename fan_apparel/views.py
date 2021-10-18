@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
 
-from .models import Product, User
+from .models import Product, User, Order, OrderItem
 from .serializers import ProductSerializer, UserSerializer, UserSerializerWithToken
 
 
@@ -95,3 +95,26 @@ def getProduct(request, pk):
     specificProduct = Product.objects.get(_id=pk)
     serializer = ProductSerializer(specificProduct, many=False)
     return Response(serializer.data)
+
+
+# order views
+# @api_view('POST')
+# @permission_classes([IsAuthenticated])
+# def addOrderItems(request): 
+#     user = request.user 
+#     data = request.data
+
+#     orderItems = data['orderItems']
+
+#     if orderItems and len(orderItems) == 0:
+#         return Response({'detail': 'No Order Items'}, status=status.HTTP_400_BAD_REQUEST)
+#     else: 
+#         order = Order.objects.create(
+#             user = user, 
+#             paymentMethod = data['paymentMethod'], 
+#             taxPrice = data['taxPrice'], 
+#             shippingPrice = data['shippingPrice'], 
+#             totalPrice = data['totalPrice']
+#         )
+        
+#     return Response('ORDER')

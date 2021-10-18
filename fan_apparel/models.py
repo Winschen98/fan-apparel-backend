@@ -31,11 +31,11 @@ class Order(models.Model):
     _id = models.AutoField(primary_key=True, editable=False)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     paymentMethod = models.CharField(max_length=200, null=True, blank=True)
-    taxCost = models.DecimalField(
+    taxPrice = models.DecimalField(
         max_digits=7, decimal_places=2, null=True, blank=True)
-    shippingCost = models.DecimalField(
+    shippingPrice = models.DecimalField(
         max_digits=7, decimal_places=2, null=True, blank=True)
-    totalCost = models.DecimalField(
+    totalPrice = models.DecimalField(
         max_digits=7, decimal_places=2, null=True, blank=True)
     paid = models.BooleanField(default=False)
     paidAt = models.DateTimeField(auto_now_add=False, null=True, blank=True)
