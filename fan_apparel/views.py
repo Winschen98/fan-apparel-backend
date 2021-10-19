@@ -117,29 +117,29 @@ def addOrderItems(request):
             totalPrice = data['totalPrice']
         )
         
-        # shipping = ShippingAddress.objects.create(
-        #     order = order,
-        #     address = data['shippingAddress']['address'],
-        #     city = data['shippingAddress']['city'],
-        #     postalCode = data['shippingAddress']['postalCode'],
-        #     country = data['shippingAddress']['country'],
-        # )
+        shipping = ShippingAddress.objects.create(
+            order = order,
+            address = data['shippingAddress']['address'],
+            city = data['shippingAddress']['city'],
+            postalCode = data['shippingAddress']['postalCode'],
+            country = data['shippingAddress']['country'],
+        )
 
-        # for i in orderItems: 
-        #     product = Product.objects.get(id=i['product'])
+        for i in orderItems: 
+            product = Product.objects.get(id=i['product'])
 
-        #     item = OrderItem.objects.create(
-        #         product = product, 
-        #         order = order, 
-        #         name = product.name, 
-        #         quantity = i['quantity'], 
-        #         price = i['price'], 
-        #         image = product.image.url,
-        #     )
+            item = OrderItem.objects.create(
+                product = product, 
+                order = order, 
+                name = product.name, 
+                quantity = i['quantity'], 
+                price = i['price'], 
+                image = product.image.url,
+            )
 
-        # #update stock count after order
-        # product.inStock -= item.quantity
-        # product.save()
+        #update stock count after order
+        product.inStock -= item.quantity
+        product.save()
 
-        # serializer = OrderSerializer(order, many=False)
-        # return Response('ORDER')
+        serializer = OrderSerializer(order, many=False)
+        return Response('ORDER')

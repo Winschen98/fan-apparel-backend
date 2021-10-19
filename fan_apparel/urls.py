@@ -16,4 +16,6 @@ urlpatterns = [
     path('users/profile/update/', views.updateUserProfile, name='user-profile-update'),
 
     path('products/<str:pk>', views.getProduct, name='product'),
+
+    path('orders/add/', views.addOrderItems, name='orders-add'),
 ]
