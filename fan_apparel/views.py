@@ -137,9 +137,9 @@ def addOrderItems(request):
                 image = product.image.url,
             )
 
-        #update stock count after order
-        product.inStock -= item.quantity
-        product.save()
+            #update stock count after order
+            product.inStock -= item.quantity
+            product.save()
 
         serializer = OrderSerializer(order, many=False)
         return Response(serializer.data)
