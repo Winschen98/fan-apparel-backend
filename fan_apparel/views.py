@@ -134,7 +134,6 @@ def addOrderItems(request):
                 name = product.name, 
                 quantity = i['quantity'], 
                 price = i['price'], 
-                # image = product.image.url,
             )
 
             #update stock count after order
