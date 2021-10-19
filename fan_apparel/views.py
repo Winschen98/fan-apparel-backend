@@ -98,7 +98,7 @@ def getProduct(request, pk):
 
 
 # order views
-@api_view('POST')
+@api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def addOrderItems(request): 
     user = request.user 
@@ -142,4 +142,4 @@ def addOrderItems(request):
         product.save()
 
         serializer = OrderSerializer(order, many=False)
-        return Response('ORDER')
+        return Response(serializer.data)
